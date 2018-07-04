@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #ccc;
+}
+
+.container {
+   width: 500px;
+   margin: 0 auto;
+   border:  1px solid #000;
+   padding: 10px;
+   
+}
+
+.language-container {
+    text-align: right;
+}
