@@ -1,0 +1,47 @@
+{
+    "arr": [
+        {
+            "position": "Software Engineer",
+            "salary": 50,
+            "currency": "BG",
+            "office": "Sofia",
+            "extensionNumber": 10
+        },
+        {
+            "position": "D",
+            "salary": 543,
+            "currency": "BGN",
+            "office": "Pernik",
+            "extensionNumber": 33
+        },
+        {
+            "position": "A",
+            "salary": 60,
+            "currency": "USD",
+            "office": "London",
+            "extensionNumber": 6
+        },
+        {
+            "position": "E",
+            "salary": 23,
+            "currency": "DE",
+            "office": "New York",
+            "extensionNumber": 4
+        },
+        {
+            "position": "C",
+            "salary": 34,
+            "currency": "BG",
+            "office": "Dupnitsa",
+            "extensionNumber": 569
+        },
+        {
+            "position": "B",
+            "salary": 90,
+            "currency": "USD",
+            "office": "New York",
+            "extensionNumber": 456
+        }
+      
+    ]
+}
