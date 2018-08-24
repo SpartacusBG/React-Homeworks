@@ -1,0 +1,86 @@
+.card-container {
+    width: 19%;
+    height:100vh;
+    background-color: #EFF1F3;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+    display: inline-block;
+    margin: 0 0.5%;
+
+    .heading {
+        clear: both;
+
+        p, span, div {
+            display: inline-block;
+        }
+
+        .counter {
+            background-color: #ccc;
+            border-radius: 100%;
+            box-sizing: border-box;
+            padding: 6px;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            vertical-align: top;
+        }
+
+        .title {
+            vertical-align: middle;
+            margin: 0 10px;
+
+        }
+
+        .more-info-container {
+            float: right;
+
+            span {
+                margin: 0 5px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .card-holder {
+        overflow-y: scroll;
+        height: 100%;
+        
+        .card {
+            background-color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            margin: 5px 0;
+    
+            .card-heading {
+                clear: both;
+    
+                span, h2 {
+                    display: inline-block;
+                }
+    
+                h2 {
+                    color: #688DD8;
+                    font-size: 13px;
+                    margin: 10px;
+                }
+    
+                .dotts {
+                    float: right;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+    
+            .card-body {
+    
+            }
+        }
+    }
+
+}

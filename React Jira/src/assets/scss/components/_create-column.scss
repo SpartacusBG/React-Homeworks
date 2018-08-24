@@ -1,0 +1,21 @@
+.modal-window {
+    padding: 10px;
+
+    .modal-header {
+        clear: both;
+
+        span, h2 {
+            display: inline-block;
+        }
+
+        .close-button {
+            float: right;
+            font-size: 25px;
+            vertical-align: top;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
