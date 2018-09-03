@@ -21,7 +21,7 @@ class DashboardMainContainer extends React.Component {
                         <div className="card-container-holder">
                         {
                             columns.map(column =>
-                                <CardContainer  key={column} headingTitle={column} counter="2" />
+                                <CardContainer key={column.columnId} id={column.columnId} headingTitle={column.columnTitle} noteList={column.noteList} counter="2" />
                             )
                         }
                             <Link className="add-column" to='/create-column'>+ Add column</Link>

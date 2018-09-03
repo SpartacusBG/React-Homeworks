@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './card';
+import { dispatch, getState, subscribe } from './redux';
 
 class AddNote extends React.Component {
 
@@ -7,12 +8,23 @@ class AddNote extends React.Component {
         super(props);
         this.state = { note: '' };
         this.closeNoteForm = this.closeNoteForm.bind(this);
-        this.addNote = this.props.addNote;
         this.handleChange = this.handleChange.bind(this);
+        this.storeItemInRedux = this.storeItemInRedux.bind(this);
+    }
+
+    storeItemInRedux(props) {
+        const item = props;
+
+        const action = {
+            type: 'ADD_NOTE',
+            item: item
+          };
+          dispatch(action);
     }
 
     closeNoteForm(e) {
         this.setState({
+             id: Math.random(),
              note: '', 
              isVisible: false,
              nameOfCreator: '',
@@ -24,14 +36,21 @@ class AddNote extends React.Component {
     }
     
     submitNoteForm(title, date, status, nameOfCreator, note) {
+
         const noteOb = {
+            id: Math.random(),
             title: title,
             date: date,
             status: status,
             nameOfCreator: nameOfCreator,
             note: note
         };
-        this.addNote(noteOb)
+
+        const obj = {
+            columnId: this.props.columnKey,
+            noteOb: noteOb
+        };
+        this.storeItemInRedux(obj)
     }
 
     handleChange({ target }) {

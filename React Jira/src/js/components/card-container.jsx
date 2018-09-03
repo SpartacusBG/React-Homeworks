@@ -1,22 +1,14 @@
 import React from 'react';
 import Card from './card';
 import AddNote from './add-note';
+import { dispatch, getState, subscribe } from './redux';
 
 class CardContainer extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = { noteList: [], isNoteFormVisible: false };
-        this.addNote = this.addNote.bind(this);
         this.openNoteForm = this.openNoteForm.bind(this);
-    }
-
-    addNote(note) {
-        if (note) {
-            const noteList = this.state.noteList;
-            noteList.push(note);
-            this.setState({ noteList });
-        }
     }
 
     openNoteForm() {
@@ -24,7 +16,8 @@ class CardContainer extends React.Component {
     }
 
     render() {
-        const { headingTitle, counter } = this.props;
+        const { id, headingTitle, counter, noteList } = this.props;
+        
         return (
             <div className="card-container">
                 <div className="heading">
@@ -34,12 +27,12 @@ class CardContainer extends React.Component {
                         <span onClick={this.openNoteForm}>+</span>
                         <span>...</span>
                     </div>
-                    <AddNote addNote={this.addNote} isVisible={this.state.isNoteFormVisible} />
+                    <AddNote columnKey={id} isVisible={this.state.isNoteFormVisible} />
                 </div>
                 <div className="card-holder">
                     {
-                        this.state.noteList.map(note =>
-                            <Card title={note.title} date={note.date} status={note.status} nameOfCreator={note.nameOfCreator}/>
+                        noteList.map(note =>
+                            <Card key={note.id} columnKey={id} id={note.id} title={note.title} date={note.date} status={note.status} nameOfCreator={note.nameOfCreator}/>
                         )
                     }
                     <Card />
@@ -47,6 +40,8 @@ class CardContainer extends React.Component {
             </div>
         );
     }
+
+   
 
     componentDidUpdate(prevProps, prevState) {
     }
