@@ -39,7 +39,7 @@ class CardContainer extends React.Component {
                 <div className="card-holder">
                     {
                         this.state.noteList.map(note =>
-                            <Card noteTitle={note} />
+                            <Card title={note.title} date={note.date} status={note.status} nameOfCreator={note.nameOfCreator}/>
                         )
                     }
                     <Card />
