@@ -4,14 +4,23 @@ import { createStore } from 'redux';
 
 const DEFAULT_STATE = {
     viewItem: null,
+    currentFilter: '',
     columnList: [
-      {
-        columnId: 1,
-        columnTitle: 'pesho',
-        noteList: []
-      }
+      
     ]
   };
+
+  function deleteElementFromArray(array, element) {
+    for (let i = 0; i < array.length; i++) {
+      const element = array[i];
+      if (element.id == element.id) {
+        const index = array.indexOf(element);
+        array.splice(index, 1);
+      }  
+    }
+
+    return array;
+  }
   
   function mainReducer(currentState = DEFAULT_STATE, action) {
     switch(action.type) {
@@ -31,12 +40,33 @@ const DEFAULT_STATE = {
         });
       case 'DELETE':
         let findCol = currentState.columnList.find((column) => column.columnId === action.item.columnKey);
-        findCol.noteList.filter(card => card.id !== action.item.id)
-        console.log(findCol.noteList)
 
+        for (let i = 0; i < findCol.noteList.length; i++) {
+          const element = findCol.noteList[i];
+          if (element.id == action.item.id) {
+            const index = findCol.noteList.indexOf(element);
+            findCol.noteList.splice(index, 1);
+          }  
+        }
         return Object.assign({}, currentState, {
           columnList: currentState.columnList
         });
+
+        case 'MOVE_TO_ANOTHER_COLUMN':
+        let currentClumn = currentState.columnList.find((column) => column.columnId === action.item.columnKey);
+        const currentCard = currentClumn.noteList.find( (note) => note.id == action.item.id );
+        const selectedColumn =  currentState.columnList.find((column) => column.columnId === action.selectedColumnId);
+        currentClumn = deleteElementFromArray(currentClumn.noteList, currentCard.id);
+        selectedColumn.noteList.push(currentCard);
+          return Object.assign({}, currentState, {
+            columnList: currentState.columnList
+          });
+
+          case 'STORE_FILTER':
+          return Object.assign({}, currentState, {
+            currentFilter: action.filter
+          });
+
       default:
         return currentState;
     }

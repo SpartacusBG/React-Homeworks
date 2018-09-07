@@ -4,21 +4,29 @@ class CreateColumnModal extends React.Component {
 
     constructor(props) {
         super(props);
-        console.log(props)
-        this.state = {comment: ''};
+        this.state = {comment: '', errors: false};
         this.updateColumns = this.props.updateColumns;
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange({ target }) {
+        const text = target.value;
+        if (text.match(/^\d/)) {
+            this.setState({
+                errors: true,
+            });
+            return
+         }
+
         this.setState({
-            comment: target.value
+            comment: target.value,
+            errors: false
         });
     }
 
-
-
     render() {
+        const { comment, errors } = this.state;
+        const isEnabled = comment.length > 2 && comment.length <= 100 && !errors;
         return (
             <div className="modal-window">
                 <div className="modal-header">
@@ -26,14 +34,22 @@ class CreateColumnModal extends React.Component {
                 <span className="close-button" onClick={this.props.closeModal}>x</span>
                 </div>
                 <div className="modal-body">
-                <label>Column name</label>
-                    <input onChange={this.handleChange} value={this.state.comment}  type="text"/>
+                {
+                    errors?
+                    <p>Name can not start with a number</p>
+                    : null
+                }
+                <label >Column name</label>
+              
+                    <input className={errors ? 'errors': null} min="2" max="100" onChange={this.handleChange} value={this.state.comment}  type="text"/>
                 </div>
                 <div className="modal-footer">
                     <button onClick={() => {
                         this.updateColumns(this.state.comment);
                         this.props.closeModal();
-                        } }>Create column</button>
+                        } }
+                        disabled={!isEnabled}
+                        >Create column</button>
                 </div>
             </div>
         );

@@ -9,3 +9,17 @@
     right: 0;
     margin: auto;
 }
+
+.clearfix {
+    content: '';
+    clear: both;
+    display: table;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}

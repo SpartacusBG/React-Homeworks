@@ -1,0 +1,41 @@
+.note-form {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    
+    label {
+        display: block;
+        margin: 10px 0 0 0;
+    }
+
+    input, textarea {
+        display: block;
+        margin: 2px 0;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        
+    }
+
+    .button-container {
+        text-align: center;
+        width: 100%;
+        margin-top: 10px;
+
+        button {
+            display: inline-block;
+            width: 90px;
+            border: 0;
+            border-radius: 10px;
+            margin: 0 10px;
+            padding: 5px 10px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+
+}

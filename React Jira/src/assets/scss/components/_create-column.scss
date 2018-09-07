@@ -3,6 +3,7 @@
 
     .modal-header {
         clear: both;
+        text-align: center;
 
         span, h2 {
             display: inline-block;
@@ -18,4 +19,29 @@
             }
         }
     }
+    .modal-body {
+        text-align: center;
+
+        label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        input {
+            padding: 5px;
+        }
+
+        .errors {
+            border: 1px solid red;
+        }
+    }
+
+    .modal-footer {
+        button {
+            width: 150px;
+            display: block;
+            margin: 20px auto;
+        }
+    }
+
 }

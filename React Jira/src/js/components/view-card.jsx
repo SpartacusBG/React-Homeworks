@@ -16,11 +16,11 @@ class ViewCard extends React.Component {
         if (!viewItem) return null;
         return (
             <div>
-                <p> {viewItem.title}</p>
-                <p> {viewItem.date}</p>
-                <p> {viewItem.nameOfCreator}</p>
-                <p> {viewItem.status}</p>
-                <p> {viewItem.note}</p>
+                <p>Title:  {viewItem.title}</p>
+                <p>Date:  {viewItem.date}</p>
+                <p>Name of Creator:  {viewItem.nameOfCreator}</p>
+                <p>Status:  {viewItem.status}</p>
+                <p>Note: {viewItem.note}</p>
             </div>
         )
     }
