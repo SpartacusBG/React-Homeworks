@@ -10,10 +10,10 @@ const DEFAULT_STATE = {
     ]
   };
 
-  function deleteElementFromArray(array, element) {
+  function deleteElementFromArray(array, elId) {
     for (let i = 0; i < array.length; i++) {
       const element = array[i];
-      if (element.id == element.id) {
+      if (element.id == elId) {
         const index = array.indexOf(element);
         array.splice(index, 1);
       }  
@@ -53,6 +53,7 @@ const DEFAULT_STATE = {
         });
 
         case 'MOVE_TO_ANOTHER_COLUMN':
+        console.log(currentState.columnList)
         let currentClumn = currentState.columnList.find((column) => column.columnId === action.item.columnKey);
         const currentCard = currentClumn.noteList.find( (note) => note.id == action.item.id );
         const selectedColumn =  currentState.columnList.find((column) => column.columnId === action.selectedColumnId);

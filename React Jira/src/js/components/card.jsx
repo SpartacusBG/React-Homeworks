@@ -72,7 +72,7 @@ class Card extends React.Component {
                                             <Link to='/view-card' onClick={() => { this.storeItemInRedux(this.props) }}> Details</Link>
                                         </li>
                                         <li>
-                                            <p>
+                                            <div>
                                                 Move to:
                                                 <ul>
                                                     {
@@ -89,7 +89,7 @@ class Card extends React.Component {
                                                     }
                                                     
                                                 </ul>
-                                            </p>
+                                            </div>
                                         </li>
                                     </ul>
                                     : null

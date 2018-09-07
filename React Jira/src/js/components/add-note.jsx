@@ -31,7 +31,7 @@ class AddNote extends React.Component {
             isVisible: false,
             nameOfCreator: '',
             title: '',
-            date: null,
+            date: '',
             status: ''
         });
 
